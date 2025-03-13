@@ -52,8 +52,8 @@ When you create a task, AI automatically assigns:
 ```
 
 ### 🔥 **Fixes & Improvements**
-🔹 **Expand AI Model Training** for better categorization.
-🔹 **Add JWT Authentication** for secure API access.
-🔹 **Task Reminders** (Email, Slack notifications).
-🔹 **Frontend UI** (React or Streamlit integration).
+- **Expand AI Model Training** for better categorization.
+- **Add JWT Authentication** for secure API access.
+- **Task Reminders** (Email, Slack notifications).
+- **Frontend UI** (React or Streamlit integration).
 
