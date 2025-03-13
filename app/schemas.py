@@ -1,11 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 
 class TaskBase(BaseModel):
     title: str
     description: Optional[str] = None
-    category: str
-    priority: str
+    category: Optional[str] = None  # Work, Personal, Errands
+    priority: Optional[str] = None  # High, Medium, Low
     completed: bool = False
 
 class TaskCreate(TaskBase):
@@ -15,4 +15,4 @@ class TaskResponse(TaskBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True 

@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.database import SessionLocal, get_db
 from app.models import Task
 from app.schemas import TaskCreate, TaskResponse
+from app.utils import classify_task
 
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
@@ -10,7 +11,15 @@ router = APIRouter(prefix="/tasks", tags=["tasks"])
 # Create a new task
 @router.post("/", response_model=TaskResponse)
 def create_task(task: TaskCreate, db: Session = Depends(get_db)):
-    new_task = Task(**task.dict())
+    predicted_category, predicted_priority = classify_task(task.title + " " + task.description or "")
+
+    new_task = Task(
+        title=task.title,
+        description=task.description,
+        category=predicted_category or task.category,
+        priority=predicted_priority or task.priority,
+        completed=task.completed
+    )
     db.add(new_task)
     db.commit()
     db.refresh(new_task)
