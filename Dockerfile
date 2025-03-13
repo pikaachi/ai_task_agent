@@ -4,12 +4,15 @@ FROM python:3.12
 # Set the working directory
 WORKDIR /app
 
+# Install system dependencies (for some Python packages)
+RUN apt-get update && apt-get install -y gcc g++ build-essential
+
 # Copy the project files
 COPY . /app
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port FastAPI runs on
 EXPOSE 8000
