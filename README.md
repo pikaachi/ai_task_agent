@@ -49,9 +49,11 @@ When you create a task, AI automatically assigns:
   "description": "Prepare and submit the Q2 financial report",
   "completed": false
 }
+```
 
-## 📌 Future Enhancements
-- 🔹 **Expand AI Model Training for better categorization.
-- 🔹 **Add JWT Authentication for secure API access.
-- 🔹 **Task Reminders (Email, Slack notifications).
-- 🔹 **Frontend UI (React or Streamlit integration).
+### 🔥 **Fixes & Improvements**
+🔹 **Expand AI Model Training** for better categorization.
+🔹 **Add JWT Authentication** for secure API access.
+🔹 **Task Reminders** (Email, Slack notifications).
+🔹 **Frontend UI** (React or Streamlit integration).
+
